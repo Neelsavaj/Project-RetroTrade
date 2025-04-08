@@ -1,0 +1,88 @@
+/* ProductList.css */
+.product-list-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    min-height: 100vh;
+    padding: 20px;
+    background: #f4f6f9; /* Light gray background */
+  }
+  
+  .product-list-title {
+    font-size: 26px;
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 20px;
+  }
+  
+  .product-list-table {
+    width: 90%;
+    max-width: 1200px;
+    height: 500px;
+    background: white;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    border-radius: 12px;
+    padding: 20px;
+    overflow: hidden;
+  }
+  
+  /* MUI DataGrid Styling */
+  .MuiDataGrid-root {
+    font-size: 14px;
+    border-radius: 12px;
+    border: none;
+  }
+  
+  .MuiDataGrid-columnHeaders {
+    background-color: #007bff; /* Primary Blue */
+    color: white;
+    font-weight: bold;
+    font-size: 15px;
+    text-transform: uppercase;
+  }
+  
+  .MuiDataGrid-cell {
+    font-size: 14px;
+    color: #333;
+  }
+  
+  .MuiDataGrid-row {
+    transition: background 0.2s ease-in-out;
+  }
+  
+  .MuiDataGrid-row:hover {
+    background-color: rgba(0, 123, 255, 0.1); /* Light blue hover */
+  }
+  
+  /* Checkbox Styling */
+  .MuiCheckbox-root {
+    color: #007bff !important;
+  }
+  
+  /* Link Styling */
+  .product-list-link {
+    color: #007bff;
+    font-weight: 500;
+    text-decoration: none;
+  }
+  
+  .product-list-link:hover {
+    text-decoration: underline;
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    .product-list-table {
+      width: 95%;
+      height: auto;
+    }
+    .MuiDataGrid-columnHeaders {
+      font-size: 13px;
+    }
+    .MuiDataGrid-cell {
+      font-size: 12px;
+    }
+  }
+  
