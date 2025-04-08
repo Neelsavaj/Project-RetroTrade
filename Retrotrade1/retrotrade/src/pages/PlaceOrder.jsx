@@ -39,7 +39,7 @@ const PlaceOrder = () => {
 
             await axios.post("/order/add", orderData);
 
-            toast.success("✅ Order Placed Successfully!", {
+            toast.success("✅ Welcome To Payment Section", {
                 position: "top-center",
                 autoClose: 2000,
                 hideProgressBar: false,
@@ -112,7 +112,7 @@ const PlaceOrder = () => {
                             className="btn btn-primary order-button"
                             disabled={loading}
                         >
-                            {loading ? "Placing Order..." : "Confirm Order"}
+                            {loading ? "Placing Order..." : "Pay Now"}
                         </button>
                     </div>
                 </div>

@@ -5,5 +5,6 @@ export const Payment = () => {
     <div>
         <h1>Payment</h1>
     </div>
+    
   )
 }

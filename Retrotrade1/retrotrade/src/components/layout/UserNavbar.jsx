@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import logo from "../../assets/images/logo.png";
 import { Link, Outlet, useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
@@ -7,15 +7,26 @@ import "@fortawesome/fontawesome-free/css/all.min.css";
 
 export const UserNavbar = () => {
   const cartItems = useSelector((state) => state.cart.cart);
-// const navigate = useNavigate 
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const navigate = useNavigate();
 
-  const handleLogoutClick = () =>{
-  localStorage.removeItem('id');
-  localStorage.removeItem('role');
-  setIsLoggedIn(false);
-  setUser(null);
-  onLogout();
-  }
+  useEffect(() => {
+    // const id = localStorage.getItem("id");
+    const role = localStorage.getItem("role");
+    if ( role) {
+      setIsLoggedIn(true);
+    } else {
+      setIsLoggedIn(false);
+    }
+  }, []);
+
+  const handleLogoutClick = () => {
+    localStorage.removeItem("id");
+    localStorage.removeItem("role");
+    setIsLoggedIn(false);
+    // navigate("/login");
+  };
+
   return (
     <>
       <nav className="navbar navbar-expand-lg bg-white shadow-sm py-2">
@@ -61,18 +72,20 @@ export const UserNavbar = () => {
                   Contact
                 </Link>
               </li>
-             
-             
             </ul>
 
             {/* Auth Buttons & Cart */}
             <div className="d-flex align-items-center gap-3">
-              <Link to="/signup2" className="btn btn-primary fw-bold px-3 rounded-pill">
-                Sign Up
-              </Link>
-              <Link to="/login" className="btn btn-outline-primary fw-bold px-3 rounded-pill">
-                Log In
-              </Link>
+              {!isLoggedIn && (
+                <>
+                  <Link to="/signup2" className="btn btn-primary fw-bold px-3 rounded-pill">
+                    Sign Up
+                  </Link>
+                  <Link to="/login" className="btn btn-outline-primary fw-bold px-3 rounded-pill">
+                    Log In
+                  </Link>
+                </>
+              )}
 
               {/* Shopping Cart */}
               <div className="position-relative">
@@ -87,9 +100,11 @@ export const UserNavbar = () => {
               </div>
 
               {/* Logout Button */}
-              <Link to='/login'>
-              <button className="btn btn-danger px-3 fw-semibold" onClick={handleLogoutClick}>Logout</button>
-              </Link>
+              {isLoggedIn && (
+                <button className="btn btn-danger px-3 fw-semibold" onClick={handleLogoutClick}>
+                  Logout
+                </button>
+              )}
             </div>
           </div>
         </div>
