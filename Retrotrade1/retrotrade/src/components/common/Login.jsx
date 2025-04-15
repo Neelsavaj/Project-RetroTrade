@@ -27,7 +27,7 @@ export const Login = () => {
 
         toast.success("🦄 Login Success", {
           position: "top-center",
-          autoClose: 5000,
+          autoClose: 1500,
           hideProgressBar: false,
           closeOnClick: false,
           pauseOnHover: true,

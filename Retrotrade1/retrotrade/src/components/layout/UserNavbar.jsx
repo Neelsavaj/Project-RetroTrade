@@ -13,7 +13,7 @@ export const UserNavbar = () => {
   useEffect(() => {
     // const id = localStorage.getItem("id");
     const role = localStorage.getItem("role");
-    if ( role) {
+    if (role) {
       setIsLoggedIn(true);
     } else {
       setIsLoggedIn(false);
@@ -21,7 +21,7 @@ export const UserNavbar = () => {
   }, []);
 
   const handleLogoutClick = () => {
-    localStorage.removeItem("id");
+    // localStorage.removeItem("id");
     localStorage.removeItem("role");
     setIsLoggedIn(false);
     // navigate("/login");
